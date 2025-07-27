@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Tecnología Médica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f4fc;
+      padding: 20px;
+      margin: 0;
+      font-size: 13px;
+    }
+    h1 {
+      text-align: center;
+      color: #4a235a;
+    }
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 20px;
+      overflow-x: auto;
+    }
+    .year {
+      flex: 1;
+      min-width: 240px;
+      background-color: #e9e3f4;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(150, 100, 200, 0.2);
+    }
+    .year h2 {
+      text-align: center;
+      color: #4a235a;
+      font-size: 16px;
+    }
+    .semester h3 {
+      color: #6c3483;
+      font-size: 13px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      font-size: 12px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1.5px solid #a186c9;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      background-color: #faf5ff;
+    }
+    li.done {
+      text-decoration: line-through;
+      background-color: #d6d0ec;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Tecnología Médica</h1>
+  <div class="container">
+    <!-- Contenido de la malla se incluiría aquí -->
+    <!-- OMITIDO POR BREVEDAD -->
+  </div>
+  <script>
+    const items = document.querySelectorAll("li");
+    items.forEach(item => {
+      const saved = localStorage.getItem(item.textContent);
+      if (saved === "done") {
+        item.classList.add("done");
+      }
+      item.addEventListener("click", () => {
+        item.classList.toggle("done");
+        localStorage.setItem(item.textContent, item.classList.contains("done") ? "done" : "");
+      });
+    });
+  </script>
+</body>
+</html>
